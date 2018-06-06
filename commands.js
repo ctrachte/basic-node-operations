@@ -10,7 +10,7 @@ function done(output) {
 function evaluateCmd(userInput) {
  //parses the user input to understand which command was typed
   const userInputArray = userInput.split(" ");
-  const command = userInputArray[0];
+  const command = userInputArray[0].toLowerCase();
   // handles the user's input
   switch (command) {
     case "echo":
@@ -23,6 +23,11 @@ function evaluateCmd(userInput) {
     case "head":
       commandLibrary.head(userInputArray.slice(1));
       break;
+    case "tail":
+      commandLibrary.tail(userInputArray.slice(1));
+      break;
+    default:
+      done('Error: Command not found!');
   }
 }
 
@@ -57,7 +62,6 @@ const commandLibrary = {
           lineReader.close();
         }
       });
-
     }
 };
 
