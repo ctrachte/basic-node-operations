@@ -1,11 +1,11 @@
-// #1
- process.stdout.write('prompt > ');
+const commands = require("./commands.js");
 
-// #2
- process.stdin.on('data', (data) => {
-// #3
-   const cmd = data.toString().trim();
+//prompt the user for input
+process.stdout.write('prompt > ');
 
-   process.stdout.write('You typed: ' + cmd);
-   process.stdout.write('\nprompt > ');
- });
+// The stdin 'data' event triggers after a user types in a line
+process.stdin.on('data', (userInput) => {
+  userInput = userInput.toString().trim();
+ //evaluateCmd is a function which will be implemented in commands.js
+  commands.evaluateCmd(userInput);
+});
