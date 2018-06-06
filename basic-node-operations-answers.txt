@@ -15,74 +15,23 @@ It is possible that a user will input a non-existent command to our bash shell. 
 
 Hint: Use the default: case in your switch statement.
 
-In this checkpoint, you encountered built-in JavaScript methods as well as the new ES6 syntax. Review the information below before attempting the programming challenge.
 
-Arrow Functions =>: An Alternative Way to Write Functions
-//For functions with one argument
-// ES5
-var value = variableName.functionName(function (element) {
-   return element.doSomething();
-});
-// ES6
-var value = variableName.functionName(element => element.doSomething());
+My working reverse string function:
 
-//For functions with multiple arguments or no arguments
-// ES5
-var value = variableName.functionName(function (a,b) {
-   return a + b;
-}, 0);
-// ES6
-var value = variableName.functionName((a, b) => a + b, 0);
-Reverse String
+const reverse = (string) => {
 
-Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+  let letters = [];
+  let reversed = [];
 
-Example
-Input: "I'm learning to program algorithms!"
-Output: "m'I gninrael ot margorp !smhtirogla"
+  for (let i in string) {
+    letters.push(string[i]);
+  }
 
-Hint: Look at the examples above to figure out how to refactor your forEach loop to use an arrow function.
+  for (let n = letters.length; n >= 0; n--) {
+    reversed.push(letters[n]);
+  }
 
-Concepts Arrow Function, JavaScript Functions
+  return reversed.join("");
+}
 
-Suggested Functions
-
-split()
-
-stringName.split(separator)
-Splits a string into an array of substrings, and returns the new array. The separator specifies how to split the string. If an empty string ('') is used as the separator (stringName.split('')) the string is split between each character. For example, 'Hello World'.split('') -> ['H','e','l','l','o', ' ', 'W', 'o', 'r', 'l', 'd']. If no separator is used, then the entire string will be returned as an array with one element. For example, 'Hello World'.split() -> ['Hello World']. Note that the split function does not change the original string so you must assign the result to a variable to keep the result.
-
-forEach()
-
-arrayName.forEach((currentItem) => {
-//your iterator
-})
-The forEach() method executes a provided function once for each array element.
-
-let arr = ['I', 'study', 'at', 'Bloc'];
-arr.forEach((element) => {
- console.log(element);
-});
-// The above code would print, 'I', 'study', 'at', 'Bloc', to the console.
-push()
-
-arrayName.push(element)
-Adds new items to the end of an array and returns the new length.
-
-reverse()
-
-arrayName.reverse();
-Reverses an array in place. The first element of the array will become the last, and the last array element will become the first.
-
-join()
-
-arrayName.join(separator)
-Joins all elements of an array into a string. The separator specifies a string to separate each element of the array by. If omitted, the array elements are seperated with a comma (','). Note that the join function does not change the original array so you must assign the result to a variable to keep the result.
-
-let arr = ['Hello', 'World'];
-arr.join(); // 'Hello,World'
-arr.join(''); // 'HelloWorld'
-arr.join(' '); // 'Hello World'
-Starter Code
-
-function reve
+console.log(reverse("Bloc is fun!")); 
