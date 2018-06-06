@@ -27,7 +27,7 @@ function evaluateCmd(userInput) {
       commandLibrary.tail(userInputArray.slice(1));
       break;
     default:
-      done('Error: Command not found!');
+      done(`Error: '${command}' is not a valid command!`);
   }
 }
 
