@@ -62,6 +62,23 @@ const commandLibrary = {
           lineReader.close();
         }
       });
+    },
+    "tail": function(fullPath) {
+
+      let fileName = fullPath[0];
+      const lineReader = require('readline').createInterface({
+        input: fs.createReadStream(fileName),
+      });
+      let lineCounter = 0;
+      let wantedLines = [];
+      lineReader.on('line', function (line) {
+        lineCounter++;
+        wantedLines.push(line);
+      });
+      lineReader.on('close', function() {
+        wantedLines = wantedLines.slice(-5).join("\n");
+        done(wantedLines);
+      });
     }
 };
 
