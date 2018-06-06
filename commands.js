@@ -20,6 +20,9 @@ function evaluateCmd(userInput) {
     case "cat":
       commandLibrary.cat(userInputArray.slice(1));
       break;
+    case "head":
+      commandLibrary.head(userInputArray.slice(1));
+      break;
   }
 }
 
@@ -30,11 +33,31 @@ const commandLibrary = {
        done(userInput);
    },
    "cat": function(fullPath) {
-        const fileName = fullPath[0];
+        let fileName = fullPath[0];
         fs.readFile(fileName, (err, data) => {
             if (err) throw err;
             done(data);
         });
+    },
+    "head": function(fullPath) {
+
+      let fileName = fullPath[0];
+      const lineReader = require('readline').createInterface({
+        input: fs.createReadStream(fileName),
+      });
+
+      let lineCounter = 0;
+
+      lineReader.on('line', function (line) {
+        lineCounter++;
+        if (lineCounter < 6) {
+          process.stdout.write(`${lineCounter} ${line}\n`);
+        } else if (lineCounter === 6) {
+          process.stdout.write(`\nprompt > `);
+          lineReader.close();
+        }
+      });
+
     }
 };
 

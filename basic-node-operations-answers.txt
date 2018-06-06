@@ -1,0 +1,88 @@
+Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+- sort: output = all code sorted alphabetically by line, within their respective brackets (this is what sort does).
+- wc: output = 42  121 1158 commands.js. wc is showing us the number of lines, words, and characters in commands.js
+- uniq: output = all the code in the file. This is because uniq is looking for repeated lines to remove, since there are none, it displays all code.
+
+Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+- touch pipe-example.txt | echo $(date) "hi!" >> pipe-example.txt | uniq pipe-example.txt
+- output =  Wed, Jun 06, 2018 12:33:30 PM hi!
+
+Programming Questions
+Implement the head command in the commands.js file. The head command outputs the first n lines of a file (you may decide what n is). This function will be similar to cat in structure so it will be helpful to reference.
+
+Implement the tail command in the commands.js file. The tail command is the inverse of the head command. It outputs the last n lines of a file (you may decide what n is).
+It is possible that a user will input a non-existent command to our bash shell. Within commands.js create an errorHandler function which will output an error message if the command cannot be found.
+
+Hint: Use the default: case in your switch statement.
+
+In this checkpoint, you encountered built-in JavaScript methods as well as the new ES6 syntax. Review the information below before attempting the programming challenge.
+
+Arrow Functions =>: An Alternative Way to Write Functions
+//For functions with one argument
+// ES5
+var value = variableName.functionName(function (element) {
+   return element.doSomething();
+});
+// ES6
+var value = variableName.functionName(element => element.doSomething());
+
+//For functions with multiple arguments or no arguments
+// ES5
+var value = variableName.functionName(function (a,b) {
+   return a + b;
+}, 0);
+// ES6
+var value = variableName.functionName((a, b) => a + b, 0);
+Reverse String
+
+Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+Example
+Input: "I'm learning to program algorithms!"
+Output: "m'I gninrael ot margorp !smhtirogla"
+
+Hint: Look at the examples above to figure out how to refactor your forEach loop to use an arrow function.
+
+Concepts Arrow Function, JavaScript Functions
+
+Suggested Functions
+
+split()
+
+stringName.split(separator)
+Splits a string into an array of substrings, and returns the new array. The separator specifies how to split the string. If an empty string ('') is used as the separator (stringName.split('')) the string is split between each character. For example, 'Hello World'.split('') -> ['H','e','l','l','o', ' ', 'W', 'o', 'r', 'l', 'd']. If no separator is used, then the entire string will be returned as an array with one element. For example, 'Hello World'.split() -> ['Hello World']. Note that the split function does not change the original string so you must assign the result to a variable to keep the result.
+
+forEach()
+
+arrayName.forEach((currentItem) => {
+//your iterator
+})
+The forEach() method executes a provided function once for each array element.
+
+let arr = ['I', 'study', 'at', 'Bloc'];
+arr.forEach((element) => {
+ console.log(element);
+});
+// The above code would print, 'I', 'study', 'at', 'Bloc', to the console.
+push()
+
+arrayName.push(element)
+Adds new items to the end of an array and returns the new length.
+
+reverse()
+
+arrayName.reverse();
+Reverses an array in place. The first element of the array will become the last, and the last array element will become the first.
+
+join()
+
+arrayName.join(separator)
+Joins all elements of an array into a string. The separator specifies a string to separate each element of the array by. If omitted, the array elements are seperated with a comma (','). Note that the join function does not change the original array so you must assign the result to a variable to keep the result.
+
+let arr = ['Hello', 'World'];
+arr.join(); // 'Hello,World'
+arr.join(''); // 'HelloWorld'
+arr.join(' '); // 'Hello World'
+Starter Code
+
+function reve
