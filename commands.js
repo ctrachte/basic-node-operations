@@ -17,6 +17,9 @@ function evaluateCmd(userInput) {
      //we will add the functionality of echo next within the object commandLibrary
       commandLibrary.echo(userInputArray.slice(1).join(" "));
       break;
+    case "cat":
+      commandLibrary.cat(userInputArray.slice(1));
+      break;
   }
 }
 
