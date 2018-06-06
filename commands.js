@@ -29,6 +29,13 @@ const commandLibrary = {
    "echo": function(userInput) {
        done(userInput);
    }
+   "cat": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if (err) throw err;
+            done(data);
+        });
+    }
 };
 
 module.exports.commandLibrary = commandLibrary;
