@@ -11,16 +11,21 @@ function evaluateCmd(userInput) {
  //parses the user input to understand which command was typed
   const userInputArray = userInput.split(" ");
   const command = userInputArray[0];
-}
-
-//where we will store the logic of our commands
-const commandLibrary = {
+  // handles the user's input
   switch (command) {
     case "echo":
      //we will add the functionality of echo next within the object commandLibrary
       commandLibrary.echo(userInputArray.slice(1).join(" "));
       break;
   }
+}
+
+//where we will store the logic of our commands
+const commandLibrary = {
+  //the echo command
+   "echo": function(userInput) {
+       done(userInput);
+   }
 };
 
 module.exports.commandLibrary = commandLibrary;
